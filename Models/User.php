@@ -23,7 +23,6 @@ class User extends Model
         $this->created_at = $data["created_at"] ?? date('Y-m-d H:i:s');
     }
 
-    // Getters
     public function getId(): int
     {
         return $this->id;
@@ -49,7 +48,6 @@ class User extends Model
         return $this->created_at;
     }
 
-    // Setters
     public function setFullName(string $name): void
     {
         $this->full_name = $name;
