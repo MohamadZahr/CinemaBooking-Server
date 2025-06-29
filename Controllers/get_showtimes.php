@@ -15,7 +15,7 @@ try {
             s.end_date
         FROM showtimes s
         JOIN movies m ON s.movie_id = m.id
-        ORDER BY s.auditorium_id ASC
+        ORDER BY s.auditorium_id, s.time_slot ASC
     ";
 
     $stmt = $mysqli->prepare($sql);

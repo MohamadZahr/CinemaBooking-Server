@@ -63,22 +63,6 @@ class Showtime extends Model {
         return null;
     }
 
-    public function update(mysqli $mysqli): bool {
-        $sql = "UPDATE showtimes SET movie_id=?, auditorium_id=?, start_date=?, end_date=?, time_slot=? WHERE id=?";
-        $stmt = $mysqli->prepare($sql);
-        $stmt->bind_param(
-            "iisssi",
-            $this->movie_id,
-            $this->auditorium_id,
-            $this->start_date,
-            $this->end_date,
-            $this->time_slot,
-            $this->id
-        );
-
-        return $stmt->execute();
-    }
-
     public function delete(mysqli $mysqli): bool {
         $sql = "DELETE FROM showtimes WHERE id = ?";
         $stmt = $mysqli->prepare($sql);
