@@ -13,8 +13,9 @@ try {
             s.time_slot,
             s.start_date,
             s.end_date
-        FROM showtimes s
+        FROM showtimes s       
         JOIN movies m ON s.movie_id = m.id
+        WHERE (CURRENT_DATE() >= s.start_date) AND (s.end_date >= CURRENT_DATE())
         ORDER BY s.auditorium_id, s.time_slot ASC
     ";
 

@@ -3,14 +3,6 @@ require_once("../connection/cors.php");
 require_once("../models/Showtime.php");
 require_once("../connection/connection.php");
 
-header("Content-Type: application/json");
-
-// if ($_SERVER["REQUEST_METHOD"] !== "DELETE") {
-//     http_response_code(405);
-//     echo json_encode(["status" => 405, "error" => "Method Not Allowed"]);
-//     exit;
-// }
-
 // Read JSON input (DELETE typically uses raw body)
 $data = json_decode(file_get_contents("php://input"), true);
 

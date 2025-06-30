@@ -10,11 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 try {
     $sql = "
-        SELECT DISTINCT m.*
-        FROM movies m
-        INNER JOIN showtimes s ON m.id = s.movie_id
-        WHERE (CURRENT_DATE() >= s.start_date) AND (s.end_date >= CURRENT_DATE())
-        ORDER BY popularity DESC;
+        SELECT DISTINCT *
+        FROM movies
+        WHERE (CURRENT_DATE() <= release_date)
+        ORDER BY popularity DESC, release_date ASC
+        LIMIT 10;
     ";
 
     $stmt = $mysqli->prepare($sql);
@@ -29,7 +29,7 @@ try {
 
     echo json_encode([
         "status" => 200,
-        "now_showing" => $movies ?? []
+        "upcoming" => $movies ?? []
     ]);
 } catch (Exception $e) {
     echo json_encode([
