@@ -24,7 +24,6 @@ class Booking extends Model {
         $this->created_at = $data['created_at'] ?? '';
     }
 
-    // Getters
     public function getId(): int { return $this->id; }
     public function getUserId(): int { return $this->user_id; }
     public function getAuditoriumId(): int { return $this->auditorium_id; }
@@ -34,7 +33,6 @@ class Booking extends Model {
     public function getBookingDate(): string { return $this->booking_date; }
     public function getCreatedAt(): string { return $this->created_at; }
 
-    // Setters
     public function setTimeSlot(string $slot): void { $this->time_slot = $slot; }
     public function setTotalPrice(float $price): void { $this->total_price = $price; }
     public function setBookingDate(string $date): void { $this->booking_date = $date; }
@@ -69,7 +67,6 @@ class Booking extends Model {
 
         if ($stmt->execute()) {
             $data['id'] = $mysqli->insert_id;
-            // Get the created_at timestamp from the database
             $getStmt = $mysqli->prepare("SELECT created_at FROM bookings WHERE id = ?");
             $getStmt->bind_param("i", $data['id']);
             $getStmt->execute();

@@ -3,7 +3,6 @@ require_once("../connection/cors.php");
 require_once("../models/Showtime.php");
 require_once("../connection/connection.php");
 
-// Read JSON input (DELETE typically uses raw body)
 $data = json_decode(file_get_contents("php://input"), true);
 
 if (!isset($data["id"])) {
@@ -14,7 +13,6 @@ if (!isset($data["id"])) {
 
 $id = (int) $data["id"];
 
-// Fetch showtime using the find method from the base Model
 $record = Showtime::find($mysqli, $id);
 if (!$record) {
     http_response_code(404);
@@ -22,7 +20,6 @@ if (!$record) {
     exit;
 }
 
-// Convert associative array to Showtime instance
 $showtime = $record;
 $success = $showtime->delete($mysqli);
 

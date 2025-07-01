@@ -25,7 +25,6 @@ class Movie extends Model {
         $this->now_showing = (bool) $data['now_showing'];
     }
 
-    // Getters
     public function getId(): int {
         return $this->id;
     }
@@ -58,7 +57,6 @@ class Movie extends Model {
         return $this->now_showing;
     }
 
-    // Setters (optional)
     public function setTitle(string $title) {
         $this->title = $title;
     }

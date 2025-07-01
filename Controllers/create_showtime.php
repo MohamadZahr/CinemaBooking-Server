@@ -11,13 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit;
 }
 
-// Handle JSON or form-encoded input
 $data = json_decode(file_get_contents("php://input"), true);
 if (!$data) {
     $data = $_POST;
 }
 
-// Validate required fields
 $required = ["movie_id", "auditorium_id", "start_date", "end_date", "time_slot"];
 foreach ($required as $field) {
     if (empty($data[$field])) {
@@ -27,7 +25,6 @@ foreach ($required as $field) {
     }
 }
 
-// Check if the time slot is already booked for the same auditorium and future dates
 $checkSql = "
     SELECT COUNT(*) AS count 
     FROM showtimes 
@@ -49,7 +46,6 @@ if ($checkResult["count"] > 0) {
     exit;
 }
 
-// Create the showtime
 $showtime = Showtime::create($mysqli, $data);
 
 if ($showtime) {

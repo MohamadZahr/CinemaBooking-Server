@@ -3,7 +3,6 @@ require("../connection/connection.php");
 $rowLabels = range('A', 'J');
 $auditoriumCount = 7;
 
-// Prepare the statement
 $stmt = $mysqli->prepare("INSERT INTO seats (auditorium_id, row_label, seat_number, seat_type) VALUES (?, ?, ?, ?)");
 
 if (!$stmt) {
