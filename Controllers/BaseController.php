@@ -10,4 +10,3 @@ abstract class BaseController {
         ResponseService::error_response($code, $message);
     }
 }
-?>
