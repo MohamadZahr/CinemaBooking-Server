@@ -8,4 +8,8 @@ return [
     '/now_showing'         => ['controller' => 'MovieController', 'method' => 'getNowShowing'],
     '/upcoming_movies'     => ['controller' => 'MovieController', 'method' => 'getUpcoming'],
 
+    '/create_showtime'   => ['controller' => 'ShowtimeController', 'method' => 'createShowtime'],
+    '/delete_showtime'   => ['controller' => 'ShowtimeController', 'method' => 'deleteShowtime'],
+    '/showtimes'         => ['controller' => 'ShowtimeController', 'method' => 'getShowtimes'],
+
 ];
