@@ -12,4 +12,9 @@ return [
     '/delete_showtime'   => ['controller' => 'ShowtimeController', 'method' => 'deleteShowtime'],
     '/showtimes'         => ['controller' => 'ShowtimeController', 'method' => 'getShowtimes'],
 
+    '/create_booking'      => ['controller' => 'BookingController', 'method' => 'createBooking'],
+    '/available_seats'     => ['controller' => 'BookingController', 'method' => 'getAvailableSeats'],
+    '/bookings'         => ['controller' => 'BookingController', 'method' => 'getBookings'],
+
+
 ];
